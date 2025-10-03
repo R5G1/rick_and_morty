@@ -1,30 +1,26 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Header from './components/Header';
-import Page from './Pages/Page';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Sections/Header';
+import Footer from './components/Sections/Footer';
 import Home from './Pages/Home';
+import Character from './Pages/Character';
+import Favorites from './Pages/Favorites';
 import './index.css';
 
 export default function App() {
   return (
-    <>
+    <div className="app-root">
       <Header />
-      <nav style={{ display: 'flex', gap: '8px', margin: '12px 0' }}>
-        <button>
-          <Link to="/">Home</Link>
-        </button>
-        <button>
-          <Link to="/page">Page</Link>
-        </button>
-      </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/page" element={<Page />} />
-        <Route path="*" element={<div>Not Found</div>} />
-      </Routes>
+      <main className="app-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/character/:id" element={<Character />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="*" element={<div>Not Found</div>} />
+        </Routes>
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

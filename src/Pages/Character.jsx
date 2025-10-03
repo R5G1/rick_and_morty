@@ -1,4 +1,4 @@
-export default function Page() {
+export default function Сharacter() {
     return (
         <div>
             <h1>Welcome to the Page</h1>
